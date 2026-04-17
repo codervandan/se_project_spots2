@@ -1,0 +1,12 @@
+.header {
+  display: flex;
+  justify-content: center;
+  background-color: #FFFFFFCC;
+  padding: 10px 0;
+}
+
+.header__logo {
+  /* margin: 0 auto; */ /* or use display: flex in .header class and justify-content: center */
+  width: 94px;
+  height: 26px;
+}
