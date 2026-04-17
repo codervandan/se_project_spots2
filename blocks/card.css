@@ -14,7 +14,24 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  /* font-family: Poppins;
+  font-weight: 400;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: rgba(33, 33, 33, 1); */
 }
+
+.card__title {
+  font-weight: 500;
+  font-style: Medium;
+  font-size: 20px;
+  line-height: 1;
+  letter-spacing: 0;
+  color: rgba(33, 33, 33, 1);
+}
+
 
 .card__like-btn {
   background-image: url(../images/heart.svg);
