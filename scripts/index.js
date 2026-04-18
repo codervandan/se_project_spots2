@@ -38,42 +38,40 @@ const newPostBtn = document.querySelector(".profile__add-btn");
 const newPostModal = document.querySelector("#new-post-modal");
 const newPostSaveBtn = newPostModal.querySelector(".modal__save-btn");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
-
 const newPostFormEl = newPostModal.querySelector(".modal__form");
+
 const cardImageInput = newPostModal.querySelector("#card-image-input");
 const cardCaptionInput = newPostModal.querySelector("#card-caption-input");
-
+const cardTemplate = document.querySelector("#card-template");
 
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 
+editProfileFormEl.addEventListener("submit", handleProfileFormSubmit);
+newPostFormEl.addEventListener("submit", handleAddCardSubmit);
 
 
 // EVENT LISTENERS
 editProfileBtn.addEventListener("click", function () {
-  // editProfileModal.classList.add("modal_is-opened");
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
   openModal(editProfileModal);
-})
+});
 
 editProfileCloseBtn.addEventListener("click", function () {
   editProfileModal.classList.remove("modal_is-opened");
   closeModal(editProfileModal);
-})
+});
 
 newPostBtn.addEventListener("click", function() {
-  // newPostModal.classList.add("modal_is-opened");
   openModal(newPostModal);
-})
+});
 
 newPostSaveBtn.addEventListener("click", function() {
-  // newPostModal.classList.remove("modal_is-opened");
   closeModal(newPostModal);
-})
+});
 
 newPostCloseBtn.addEventListener("click", function() {
-  // newPostModal.classList.remove("modal_is-opened");
   closeModal(newPostModal);
 })
 
@@ -94,17 +92,25 @@ function handleProfileFormSubmit(evt) {
   editProfileModal.classList.remove("modal_is-opened");
   newPostModal.classList.remove("modal_is-opened");
 }
-editProfileFormEl.addEventListener("submit", handleProfileFormSubmit);
 
 function handleAddCardSubmit(evt) {
   evt.preventDefault();
   console.log(cardImageInput.value);
   console.log(cardCaptionInput.value);
+
+  closeModal(newPostModal);
 }
-newPostFormEl.addEventListener("submit", handleAddCardSubmit);
+
+
+function getCardElement(data) {
+  const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
+  const cardTitleEl = cardElement.querySelector(".card__title");
+  const cardImageEl = cardElement.querySelector(".card__image");
+
+  return cardElement;
+}
 
 // LOOP FUNCTIONS
 initialCards.forEach(function (card) {
-  console.log(card.name);
-  console.log(card.link);
-})
+  console.log(getCardElement(card));
+});

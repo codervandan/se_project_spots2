@@ -89,6 +89,7 @@
   margin-bottom: 32px;
   margin-top: 55px;
   font-style: Medium;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 630px) {
