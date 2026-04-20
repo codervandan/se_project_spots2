@@ -44,10 +44,12 @@ const newPostSaveBtn = newPostModal.querySelector(".modal__save-btn");
 const newPostCloseBtn = newPostModal.querySelector(".modal__close-btn");
 const newPostFormEl = newPostModal.querySelector(".modal__form");
 
+
 const cardImageInput = newPostModal.querySelector("#card-image-input");
 const cardCaptionInput = newPostModal.querySelector("#card-caption-input");
 const cardTemplate = document.querySelector("#card-template");
 const cardsList = document.querySelector(".cards__list");
+const cardSubmitBtn = newPostModal.querySelector(".modal__save-btn");
 
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
@@ -64,7 +66,9 @@ newPostFormEl.addEventListener("submit", function(evt) {
   const inputValues = {name: cardCaptionInput.value,link: cardImageInput.value}
   const cardElement = getCardElement(inputValues);
   cardsList.prepend(cardElement);
-
+  evt.target.reset();
+  // toggleButtonState();
+  disableButton(cardSubmitBtn);
   closeModal(newPostModal);
 });
 
@@ -72,6 +76,8 @@ newPostFormEl.addEventListener("submit", function(evt) {
 editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
+  // OPTIONAL
+  resetValidation(editProfileFormEl, [editProfileNameInput, editProfileDescriptionInput]);
   openModal(editProfileModal);
 });
 
