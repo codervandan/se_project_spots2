@@ -107,9 +107,17 @@ function getCardElement(data) {
   const cardTitleEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
   const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
+  const cardDeleteBtnEl = cardElement.querySelector(".card__delete-btn");
 
   cardLikeBtnEl.addEventListener("click", () => {
     cardLikeBtnEl.classList.toggle("card__like-btn_active")
+  });
+
+  cardDeleteBtnEl.addEventListener("click", () => {
+    // cardDeleteBtnEl.classList.toggle("card__delete-btn_active");
+    // cardDeleteBtnEl.closest(".card").remove(); <-- You can do this method or the cardElement.remove() as well both will work
+    cardElement.remove();
+    cardElement = null;
   });
 
   cardImageEl.src = data.link;
