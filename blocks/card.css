@@ -23,6 +23,11 @@
   line-height: 1;
   letter-spacing: 0;
   color: rgba(33, 33, 33, 1);
+  display: -webkit-box;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }
 
 
@@ -36,16 +41,17 @@
   cursor: pointer;
 }
 
+
 .card__like-btn:hover {
-  background-image: url(../images/heart.svg);
+  background-image: url(../images/heart-liked-hover.svg);
   width: 23px;
   height: 20px;
   border: none;
-  opacity: 0.2;
 }
 
-.card__like-btn:active {
-  background-image: url("../images/heart-liked.svg");
+.card__like-btn_active {
+  background-image: url(../images/heart-liked2.svg);
+  /* color: rgba(255, 101, 101, 1); */
   opacity: 1;
 }
 

@@ -43,13 +43,21 @@ const newPostFormEl = newPostModal.querySelector(".modal__form");
 const cardImageInput = newPostModal.querySelector("#card-image-input");
 const cardCaptionInput = newPostModal.querySelector("#card-caption-input");
 const cardTemplate = document.querySelector("#card-template");
+const cardsList = document.querySelector(".cards__list");
 
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 
 editProfileFormEl.addEventListener("submit", handleProfileFormSubmit);
-newPostFormEl.addEventListener("submit", handleAddCardSubmit);
 
+newPostFormEl.addEventListener("submit", function(evt) {
+  evt.preventDefault();
+  const inputValues = {name: cardCaptionInput.value,link: cardImageInput.value}
+  const cardElement = getCardElement(inputValues);
+  cardsList.prepend(cardElement);
+
+  closeModal(newPostModal);
+});
 
 // EVENT LISTENERS
 editProfileBtn.addEventListener("click", function () {
@@ -93,24 +101,27 @@ function handleProfileFormSubmit(evt) {
   newPostModal.classList.remove("modal_is-opened");
 }
 
-function handleAddCardSubmit(evt) {
-  evt.preventDefault();
-  console.log(cardImageInput.value);
-  console.log(cardCaptionInput.value);
-
-  closeModal(newPostModal);
-}
-
 
 function getCardElement(data) {
   const cardElement = cardTemplate.content.querySelector(".card").cloneNode(true);
   const cardTitleEl = cardElement.querySelector(".card__title");
   const cardImageEl = cardElement.querySelector(".card__image");
+  const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
+
+  cardLikeBtnEl.addEventListener("click", () => {
+    cardLikeBtnEl.classList.toggle("card__like-btn_active")
+  });
+
+  cardImageEl.src = data.link;
+  cardImageEl.alt = data.name;
+
+  cardTitleEl.textContent = data.name;
 
   return cardElement;
 }
 
-// LOOP FUNCTIONS
+// LOOPS
 initialCards.forEach(function (card) {
-  console.log(getCardElement(card));
+  const cardElement = getCardElement(card);
+  cardsList.append(cardElement);
 });
