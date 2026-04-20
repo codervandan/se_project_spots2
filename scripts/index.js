@@ -1,6 +1,10 @@
 // ARRAY OF OBJECTS
 const initialCards = [
   {
+    name: "Landscape Image",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/7-photo-by-griffin-wooldridge-from-pexels.jpg"
+  },
+  {
     name: "Val Thorens",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/spots/1-photo-by-moritz-feldmann-from-pexels.jpg",
   },
@@ -48,6 +52,11 @@ const cardsList = document.querySelector(".cards__list");
 const profileNameEl = document.querySelector(".profile__name");
 const profileDescriptionEl = document.querySelector(".profile__description");
 
+const previewModal = document.querySelector("#preview-modal");
+const previewModalCloseBtn = previewModal.querySelector(".modal__close-btn");
+const previewImageEl = previewModal.querySelector(".modal__image");
+const previewNameEl = previewModal.querySelector(".modal__caption");
+
 editProfileFormEl.addEventListener("submit", handleProfileFormSubmit);
 
 newPostFormEl.addEventListener("submit", function(evt) {
@@ -83,6 +92,10 @@ newPostCloseBtn.addEventListener("click", function() {
   closeModal(newPostModal);
 })
 
+previewModalCloseBtn.addEventListener("click", () => {
+  previewModal.classList.toggle("modal_is-opened");
+})
+
 // FUNCTIONS
 function openModal(modal) {
   modal.classList.add("modal_is-opened")
@@ -109,6 +122,9 @@ function getCardElement(data) {
   const cardLikeBtnEl = cardElement.querySelector(".card__like-btn");
   const cardDeleteBtnEl = cardElement.querySelector(".card__delete-btn");
 
+
+  cardTitleEl.textContent = data.name;
+
   cardLikeBtnEl.addEventListener("click", () => {
     cardLikeBtnEl.classList.toggle("card__like-btn_active")
   });
@@ -123,10 +139,17 @@ function getCardElement(data) {
   cardImageEl.src = data.link;
   cardImageEl.alt = data.name;
 
-  cardTitleEl.textContent = data.name;
+  cardImageEl.addEventListener("click", () => {
+    previewImageEl.src = data.link;
+    previewNameEl.textContent = data.name;
+    console.log(cardImageEl);
+
+    openModal(previewModal);
+  })
 
   return cardElement;
 }
+
 
 // LOOPS
 initialCards.forEach(function (card) {

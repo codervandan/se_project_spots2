@@ -3,6 +3,7 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  cursor: pointer;
 }
 
 .card__image {
@@ -102,8 +103,8 @@
   }
 
   .card__delete-btn {
-    width: 32;
-  height: 32;
+  width: 32px;
+  height: 32px;
   top: 10px;
   left: 246px;
   opacity: 1;
