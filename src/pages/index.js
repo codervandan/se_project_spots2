@@ -1,4 +1,5 @@
-import { enableValidation, settings, toggleButtonState, disableButton, resetValidation, setEventListeners } from "./validation.js";
+import "../pages/index.css";
+import { enableValidation, settings, toggleButtonState, disableButton, resetValidation, setEventListeners } from "../scripts/validation.js";
 
 // ARRAY OF OBJECTS
 const initialCards = [
