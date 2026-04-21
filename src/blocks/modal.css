@@ -162,6 +162,42 @@
   font-size: 20px;
 }
 
+.modal__actions {
+  display: flex;
+  gap: 20px; /* matches Figma spacing */
+  justify-content: center;
+}
+
+.modal__delete-btn {
+  background-color: #ff3b30;
+  color: #fff;
+  border-radius: 8px;
+  padding: 18px 32px;
+  height: 52px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.modal__cancel-btn {
+  background-color: #fff;
+  color: #000;
+  border-radius: 8px;
+  padding: 18px 32px;
+  height: 52px;
+  border: 1px solid #000;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.modal__text {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-style: Medium;
+  line-height: 100%;
+  text-align: center;
+}
+
 @media screen and (max-width: 630px) {
   .modal__save-btn {
     width: 100%;
