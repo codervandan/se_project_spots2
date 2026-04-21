@@ -1,3 +1,5 @@
+import { enableValidation, settings, toggleButtonState, disableButton, resetValidation, setEventListeners } from "./validation.js";
+
 // ARRAY OF OBJECTS
 const initialCards = [
   {
@@ -68,7 +70,7 @@ newPostFormEl.addEventListener("submit", function(evt) {
   cardsList.prepend(cardElement);
   evt.target.reset();
   // toggleButtonState();
-  disableButton(cardSubmitBtn);
+  disableButton(cardSubmitBtn, settings);
   closeModal(newPostModal);
 });
 
@@ -77,7 +79,7 @@ editProfileBtn.addEventListener("click", function () {
   editProfileNameInput.value = profileNameEl.textContent;
   editProfileDescriptionInput.value = profileDescriptionEl.textContent;
   // OPTIONAL
-  resetValidation(editProfileFormEl, [editProfileNameInput, editProfileDescriptionInput]);
+  resetValidation(editProfileFormEl, [editProfileNameInput, editProfileDescriptionInput], settings);
   openModal(editProfileModal);
 });
 
@@ -139,7 +141,7 @@ function getCardElement(data) {
     // cardDeleteBtnEl.classList.toggle("card__delete-btn_active");
     // cardDeleteBtnEl.closest(".card").remove(); <-- You can do this method or the cardElement.remove() as well both will work
     cardElement.remove();
-    cardElement = null;
+    // cardElement = null;
   });
 
   cardImageEl.src = data.link;
@@ -162,3 +164,5 @@ initialCards.forEach(function (card) {
   const cardElement = getCardElement(card);
   cardsList.append(cardElement);
 });
+
+enableValidation(settings);
