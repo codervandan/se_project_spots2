@@ -241,9 +241,12 @@ function getCardElement(data) {
   //   cardLikeBtnEl.classList.toggle("card__like-btn_active")
   // });
 
+  if(data.isLiked){
+  cardLikeBtnEl.classList.adds("card__like-btn_active");
+}
+
   cardLikeBtnEl.addEventListener("click", () => {
   const isLiked = cardLikeBtnEl.classList.contains("card__like-btn_active");
-
   const request = isLiked
     ? api.unlikeCard(data._id)
     : api.likeCard(data._id);
