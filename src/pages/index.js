@@ -193,7 +193,8 @@ newPostCloseBtn.addEventListener("click", function() {
 })
 
 previewModalCloseBtn.addEventListener("click", () => {
-  previewModal.classList.toggle("modal_is-opened");
+  // previewModal.classList.toggle("modal_is-opened");
+  closeModal(previewModal);
 })
 
 deleteForm.addEventListener("submit", handleDeleteSubmit);
@@ -242,7 +243,7 @@ function getCardElement(data) {
   // });
 
   if(data.isLiked){
-  cardLikeBtnEl.classList.adds("card__like-btn_active");
+  cardLikeBtnEl.classList.add("card__like-btn_active");
 }
 
   cardLikeBtnEl.addEventListener("click", () => {

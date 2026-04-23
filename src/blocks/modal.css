@@ -17,6 +17,11 @@
   padding: 0 16px;
 }
 
+.modal__type_delete {
+  font-size: 24px;
+  text-align: center;
+}
+
 .modal__label {
   display: block;
   /* margin: 0 0 32px; */
@@ -90,12 +95,18 @@
   opacity: 105%;
   padding: 0;
   position: absolute;
-  top: -39px;
-  right: -55px;
+  top: 32px;
+  right: 50px;
   width: 40px;
   height: 40px;
   border: none;
   cursor: pointer;
+}
+
+.modal__close-btn_type_delete {
+  background-image: url(../images/delete-icon-default2.svg);
+  top: -39px;
+  right: -55px;
 }
 
 .button_inactive {
@@ -166,7 +177,7 @@
   justify-content: center;
 }
 
-.modal__delete-btn {
+.modal__save-btn_delete {
   background-color: #ff3b30;
   color: #fff;
   border-radius: 8px;
@@ -175,6 +186,7 @@
   border: none;
   cursor: pointer;
   border-radius: 8px;
+  margin-right: unset;
 }
 
 .modal__cancel-btn {
