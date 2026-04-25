@@ -17,6 +17,11 @@
   padding: 0 16px;
 }
 
+.modal__type_delete {
+  font-size: 24px;
+  text-align: center;
+}
+
 .modal__label {
   display: block;
   /* margin: 0 0 32px; */
@@ -50,7 +55,6 @@
   display: flex;
   flex-direction: column;
   /* margin-top: 32px; */
-  gap: 20px;
 }
 
 .modal__input {
@@ -99,6 +103,12 @@
   cursor: pointer;
 }
 
+.modal__close-btn_type_delete {
+  background-image: url(../images/delete-icon-default2.svg);
+  top: -39px;
+  right: -55px;
+}
+
 .button_inactive {
   background-color: rgba(33, 33, 33, 0.3);
   opacity: 0.6;
@@ -122,7 +132,6 @@
   height: 52px;
   color: #fff;
   border-radius: 8px;
-  margin-bottom: 32px;
   margin-top: 0;
   font-style: Medium;
   cursor: pointer;
@@ -160,6 +169,53 @@
   padding-bottom: 4px;
   padding-left: 8px;
   font-size: 20px;
+}
+
+.modal__actions {
+  display: flex;
+  gap: 20px; /* matches Figma spacing */
+  justify-content: center;
+}
+
+.modal__save-btn_delete {
+  background-color: #ff3b30;
+  color: #fff;
+  border-radius: 8px;
+  padding: 18px 32px;
+  height: 52px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  margin-right: unset;
+}
+
+.modal__cancel-btn {
+  background-color: #fff;
+  color: #000;
+  border-radius: 8px;
+  padding: 18px 32px;
+  height: 52px;
+  border: 1px solid #000;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.modal__cancel-btn:hover {
+  background-color: rgba(33, 33, 33, 1);
+  color: #fff;
+}
+
+.modal__cancel-btn, .modal__delete-btn {
+  padding-left: 52px;
+  padding-right: 52px;
+}
+
+.modal__text {
+  font-family: "Poppins", Arial, Helvetica, sans-serif;
+  font-weight: 500;
+  font-style: Medium;
+  line-height: 100%;
+  text-align: center;
 }
 
 @media screen and (max-width: 630px) {
